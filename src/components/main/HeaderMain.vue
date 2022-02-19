@@ -1,63 +1,81 @@
 <template>
-	<div id="app" :class="cmpMainTheme">
-      <HeaderMain
-		:item="cmpHeaderContent"
-		/>
-
-      <FooterMain
-		:item="cmpFooterContent"
-		/>
-	</div>
+	<header 
+		class="header-main-component"
+	>
+		<h1>{{ cmpTitle }}</h1>
+		<h2>{{cmpSubTitle}}</h2>
+		<img :src="require('@/assets/logo5.png')" :alt="cmpTitle">
+	</header>
 </template>
 
 <script>
-
-      import HeaderMain from './components/main/HeaderMain.vue';
-      import FooterMain from './components/main/FooterMain.vue';
-  /*
+	/*
 		[VUE] Component
 		Define properties and methods => https://bit.ly/3GdqmXg
 	*/
 		export default {
 			// [VUE] Component name
-			name: 'app',
+			name: 'HeaderMain',
 
 			/*
 				[VUE] Components => https://bit.ly/3GdqmXg
 				Used to inject children components
 			*/
-				components: { HeaderMain, FooterMain },
+				components: {},
+			//
+
+            /*
+                [VUE] Props => https://bit.ly/3KSrvau
+                Used to inject values from parent componet
+            */
+				props: {
+					item: {
+						type: Object,
+						required: true,
+						dafault: () => {},
+					}
+				},
+			//
+
+			/*
+                [VUE] computed => https://bit.ly/3KSrvau
+                Used to use objet preperties from parent child
+            */
+				computed: {
+					cmpTitle: function(){
+						if( this.item && this.item.title){
+							return this.item.title;
+						}
+						else { 
+							return undefined 
+						}
+					},
+						cmpSubTitle: function(){
+						if( this.item && this.item.subtitle){
+							return this.item.subtitle;
+						}
+						else { 
+							return undefined 
+						}
+					}
+					
+				},
 			//
 
 			/*
 				[VUE] Data => https://bit.ly/3GdqmXg
 				Used to inject data in the Vue.js component
 			*/
-				data: function() {
-					return {
-						cmpMainTheme: 'small-theme',
-						cmpHeaderContent: {
-							title: 'Stream Cine',
-							subtitle: 'Prêt à regarder? Remplissez le formulaire proposé dans cette page',
-							image: '@/assets/logo5.png'
-						},
-						cmpFooterContent: ' Stream Cine - 2022'
-					};
+				data(){
+					return { }
 				},
 			//
 
 			/*
-				[VUE] Computed => https://bit.ly/3u92MZv
-				Used to check 'data' sub-properties or 'props' before use it
+				[VUE] Methods => https://bit.ly/3GdqmXg
+				Used to add methods in Vue.js component
 			*/
-				methods: {
-					/* 
-						[UI] initUserInterface()
-						Used to define main HTML tags height
-					*/
-						initUserInterface: async function() {},
-					//
-				},
+				methods:{ },
 			//
 
 			/*
@@ -70,23 +88,22 @@
 				*/
 					created: async function(){},
 				//
-
+				
 
 				/* 
-					[HOOK] Mounted => https://bit.ly/3IHFa26
+					[HOOK] Mounted
 					Called after the instance has been mounted
 				*/
-					mounted: async function(){
-						/* 
-							[UI] initUserInterface()
-							Used to define main HTML tags height
-						*/
-							this.initUserInterface();
-						//
-					},
+					mounted: async function(){},
 				//
 
 				/* 
+					// Called synchronously after the instance has been initialized
+					created: async function(){},
+
+					// Called synchronously after the instance is created
+					created: async function(){},
+
 					// Called right before the mounting begins
 					beforeMount: async function(){},
 
@@ -100,7 +117,7 @@
 					updated: async function(){},
 
 					// Called when a kept-alive component is activated
-					activated: async function(){},
+					
 
 					// Called when a kept-alive component is deactivated
 					deactivated: async function(){},
