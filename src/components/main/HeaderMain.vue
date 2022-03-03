@@ -4,6 +4,10 @@
 	>
 		<h1>{{ cmpTitle }}</h1>
 		<h2>{{cmpSubTitle}}</h2>
+		<div id=rep>
+		<p>{{cmpPara}}</p>
+		</div>
+
 		<img :src="require('@/assets/logo5.png')" :alt="cmpTitle">
 	</header>
 </template>
@@ -53,6 +57,14 @@
 						cmpSubTitle: function(){
 						if( this.item && this.item.subtitle){
 							return this.item.subtitle;
+						}
+						else { 
+							return undefined 
+						}
+					},
+						cmpPara: function(){
+						if( this.item && this.item.para){
+							return this.item.para;
 						}
 						else { 
 							return undefined 

@@ -1,18 +1,62 @@
 .small-theme{
     --flex-item-width: 100%;
-    --font-size:3rem;
+    --font-size:2rem;
 }
 
 .medium-theme{
     --flex-item-width: 40%;
-    --font-size:2rem;
+    --font-size:1.5rem;
 }
 
 .large-theme{
     --flex-item-width: 15%;
-    --font-size:1.6rem;
+    --font-size:1rem;
 }
 
 #app{
     font-size: var(--font-size);
+}
+
+header img {
+    width: 7rem;
+    position: absolute;
+    top: -1rem;
+    left: 30%;
+    z-index: 1;
+}
+header{
+    position: relative;
+    top: 1rem;
+}
+
+h1 {
+    text-align: center;
+    margin: 1%;
+    padding: 1%;
+    margin-left: 22%;
+    margin-right: 22%;
+    font-size: xxx-large;
+    font-weight: bold;
+}
+
+h1, footer, a {
+    color: #252525;
+    margin-top: 1%;
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+    margin: 2%;
+}
+
+#rep p{
+    border:1px;
+    border-style:solid;
+    border-color:#252525;
+    text-align: center;
+    margin: 2%;
+    padding: 2%;
+    margin-left: 19%;
+    margin-right: 20%;
 }
