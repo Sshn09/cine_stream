@@ -67,7 +67,7 @@
 			*/
 				methods:{ },
 			//
-
+			
 			/*
 				[VUE] Hooks => https://bit.ly/3s7AwEa
 				Used for Vue.js component life cycle

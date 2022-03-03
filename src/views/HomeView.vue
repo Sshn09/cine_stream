@@ -2,11 +2,29 @@
 	<div 
 		class="home-view-component"
 	>
-		<p>home-view-component</p>
+		<section
+			class="flex-container"
+		>
+			<article 
+				v-for="(item, idx) in cmpFilmList" 
+				:key="`item-film-${idx}`"
+				class="flex-item"
+			>
+				<FilmItem 
+					:item="item"
+				/>
+			</article>
+		</section>
 	</div>
 </template>
 
 <script>
+	/* 
+		[IMPORT] Child
+	*/
+		import FilmItem from '../components/item/FilmItem.vue'
+	//
+
 	/*
 		[VUE] Component
 		Define properties and methods => https://bit.ly/3GdqmXg
@@ -19,7 +37,7 @@
 				[VUE] Components => https://bit.ly/3GdqmXg
 				Used to inject children components
 			*/
-				components: {},
+				components: { FilmItem },
 			//
 
 			/*
@@ -27,7 +45,15 @@
 				Used to inject data in the Vue.js component
 			*/
 				data(){
-					return { }
+					return {
+						cmpFilmList: [
+							{ title: `Akira` },
+							{ title: `Wayne's World` },
+							{ title: `Daryl` },
+							{ title: `Qui veut la peau de Roger Rabbit` },
+							{ title: `Le guide du voygeur Intercalactique` },
+						]
+					}
 				},
 			//
 
@@ -77,7 +103,7 @@
 					updated: async function(){},
 
 					// Called when a kept-alive component is activated
-					activated: async function(){},
+					
 
 					// Called when a kept-alive component is deactivated
 					deactivated: async function(){},
@@ -101,4 +127,14 @@
 		}
 	//
 </script>
-<style scoped></style>
+<style scoped>
+.flex-container{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+.flex-item{
+	width: var(--flex-item-width);
+	border: 0.1rem solid red;
+}
+</style>

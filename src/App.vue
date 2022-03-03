@@ -4,6 +4,10 @@
 		:item="cmpHeaderContent"
 		/>
 
+		<main>
+			<router-view :key="$route.name" />
+		</main>
+
       <FooterMain
 		:item="cmpFooterContent"
 		/>
@@ -55,7 +59,13 @@
 						[UI] initUserInterface()
 						Used to define main HTML tags height
 					*/
-						initUserInterface: async function() {},
+						initUserInterface: async function() {
+							window.addEventListener('resize', () => {
+								if (window.innerWidth <= 600) { this.cmpMainTheme = "small-theme" }
+								else if (window.innerWidth > 600 && window.innerWidth < 1200) { this.cmpMainTheme = "medium-theme" }
+								else if (window.innerWidth >= 1200) { this.cmpMainTheme = "large-theme" }
+							})
+						},
 					//
 				},
 			//
@@ -124,4 +134,5 @@
 		}
 	//
 </script>
+<style src="@/assets/css/main.css"></style>
 <style scoped></style>

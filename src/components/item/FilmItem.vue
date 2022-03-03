@@ -2,7 +2,7 @@
 	<div 
 		class="film-item-component"
 	>
-		<p>film-item-component</p>
+		<p>{{ cmpTitle }}</p>
 	</div>
 </template>
 
@@ -21,6 +21,25 @@
 			*/
 				components: {},
 			//
+
+			props: {
+				item: {
+					type: Object,
+					require: true,
+					default: () => {}
+				}
+			},
+
+			computed: {
+					cmpTitle: function(){
+						if( this.item && this.item.title){
+							return this.item.title;
+						}
+						else { 
+							return undefined 
+						}
+					},
+			},
 
 			/*
 				[VUE] Data => https://bit.ly/3GdqmXg
