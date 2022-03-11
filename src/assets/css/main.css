@@ -71,3 +71,49 @@ body{
     margin-right: 1%;
     color: #FFFFFF;
 }
+button, input[type="submit"]{
+    padding: 1.5rem 9rem;
+    background-color: #640707;
+    font-size: inherit;
+    border: 0;
+    color: #FFFFFF;
+    margin-top: 15%;
+}
+input,textarea{
+    border: 0;
+}
+.form form {
+    max-width: 50rem;
+    margin: 0 auto;
+}
+.form form input, .form form label{
+    display: block;
+}
+.form form label{
+    margin-top: 2rem;
+    color: #FFFFFF;
+    text-align: left;
+}
+
+.form form input{
+    border: .1rem solid black;
+    padding: 1rem;
+    border-radius: .5rem;
+    width: 100%;
+}
+.form form [placeholder] {
+    font-size: inherit;
+    color: #222;
+}
+form input:not(input[type="submit"]), form select {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    outline: none;
+}
+form {
+    display: flex;
+    flex-direction: column;
+}
+.form input:invalid {
+    border-color: #ff0000;
+}
