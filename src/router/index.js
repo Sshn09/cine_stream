@@ -23,6 +23,11 @@ const routerPath = [
         name: 'FilmView',
         component: () => import('../views/FilmView.vue'),
     },
+    {
+        path: '/formulaire',
+        name: 'FormView',
+        component: () => import('../views/FormView.vue'),
+    },
 ];
 //
 

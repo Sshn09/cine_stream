@@ -40,7 +40,7 @@ h1 {
 }
 
 h1, footer, a {
-    color: #252525;
+    color: #FFFFFF;
     margin-top: 1%;
     text-align: center;
 }
@@ -53,10 +53,21 @@ h2 {
 #rep p{
     border:1px;
     border-style:solid;
-    border-color:#252525;
+    border-color:#FFFFFF;
     text-align: center;
     margin: 2%;
     padding: 2%;
     margin-left: 19%;
     margin-right: 20%;
+}
+
+body{
+    font: 1.6rem 'Raleway',sans-serif;
+    margin: 0;
+    background-color: #252525;
+    line-height: 1.6;
+    text-rendering:optimizeLegibility;
+    margin-left: 1%;
+    margin-right: 1%;
+    color: #FFFFFF;
 }
