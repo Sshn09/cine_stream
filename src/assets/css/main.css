@@ -77,7 +77,8 @@ button, input[type="submit"]{
     font-size: inherit;
     border: 0;
     color: #FFFFFF;
-    margin-top: 15%;
+    margin-left: 35%;
+    margin-right: 35%;
 }
 input,textarea{
     border: 0;

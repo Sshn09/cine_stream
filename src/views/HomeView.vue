@@ -16,6 +16,11 @@
 			</article>
 			
 		</section>
+		<button 
+                @click="formulaire()"
+            >
+                Valider
+            </button>
 		
 	</div>
 	
@@ -66,7 +71,11 @@
 				[VUE] Methods => https://bit.ly/3GdqmXg
 				Used to add methods in Vue.js component
 			*/
-				methods:{ },
+				methods:{ 
+					formulaire(){
+						this.$router.push('/Formulaire');
+					}
+				},
 			//
 
 			/*
@@ -144,4 +153,5 @@
 	text-align: center;
     margin: 2rem auto;
 }
+
 </style>
