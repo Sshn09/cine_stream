@@ -7,8 +7,9 @@
 		<div id=rep>
 		<p>{{cmpPara}}</p>
 		</div>
-
+		<a href="/">
 		<img :src="require('@/assets/logo5.png')" :alt="cmpTitle">
+		</a>
 	</header>
 </template>
 
