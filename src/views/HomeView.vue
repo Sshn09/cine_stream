@@ -16,7 +16,7 @@
 			</article>
 			
 		</section>
-		<button 
+			<button 
                 @click="formulaire()"
             >
                 Valider

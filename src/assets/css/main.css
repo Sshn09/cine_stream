@@ -71,14 +71,15 @@ body{
     margin-right: 1%;
     color: #FFFFFF;
 }
-button, input[type="submit"]{
-    padding: 1.5rem 9rem;
+button{
+    padding: 1.5rem;
+    display: block;
+    width: 20rem;
     background-color: #640707;
     font-size: inherit;
     border: 0;
     color: #FFFFFF;
-    margin-left: 35%;
-    margin-right: 35%;
+    margin: 1rem auto;
 }
 input,textarea{
     border: 0;

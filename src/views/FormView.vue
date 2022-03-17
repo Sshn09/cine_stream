@@ -59,10 +59,10 @@
             </select>
 
             <!-- Use cmpFormData for validation -->
-            <button 
-                type="submit"
+			<button 
+                @click="formulaire()"
             >
-				Valider
+                Valider
             </button>
 
 			<button id="connexion"
