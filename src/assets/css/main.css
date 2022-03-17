@@ -118,3 +118,7 @@ form {
 .form input:invalid {
     border-color: #ff0000;
 }
+#connexion{
+    background-color: transparent;
+    text-align: center;
+}

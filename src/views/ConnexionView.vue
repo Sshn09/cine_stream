@@ -1,7 +1,8 @@
 <template>
 	<div 
-		class="home-view-component"
+		class="form-view-component"
 	>
+    
 		<section
 			class="flex-container"
 		>
@@ -14,23 +15,38 @@
 					:item="item"
 				/>
 			</article>
-			
 		</section>
-		<button 
-                @click="formulaire()"
+        <section class="form">
+        <form 
+            action="#"
+            @submit="onSubmit"
+        >
+            <!-- Directive v-model => input.value -->
+            <div>
+                <label for="mail">E-mail :</label>
+                <input 
+                    type="email" name="user_mail" id="mail" 
+                    placeholder="E-mail" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]{2,4}$"
+                >
+            </div>
+            <div>
+                <label for="pass">Password (8 characters minimum) :</label>
+                <input 
+                    type="password" name="password" id="pass" 
+                    required minlength="8" placeholder="Mot de passe"
+                >
+            </div>
+            <!-- Use cmpFormData for validation -->
+            <button 
+                type="submit"
             >
-                Valider
+				Valider
             </button>
-			<button id="connexion" 
-                @click="connexion()"
-            >
-                Connexion
-            </button>
+        </form>
+        </section>
 	</div>
-	
 
 </template>
-
 
 <script>
 	/* 
@@ -45,7 +61,7 @@
 	*/
 		export default {
 			// [VUE] Component name
-			name: 'HomeView',
+			name: 'FormView',
 
 			/*
 				[VUE] Components => https://bit.ly/3GdqmXg
@@ -75,14 +91,7 @@
 				[VUE] Methods => https://bit.ly/3GdqmXg
 				Used to add methods in Vue.js component
 			*/
-				methods:{ 
-					formulaire(){
-						this.$router.push('/Formulaire');
-					},
-					connexion(){
-						this.$router.push('/Connexion');
-					}
-				},
+				methods:{ },
 			//
 
 			/*
@@ -160,5 +169,4 @@
 	text-align: center;
     margin: 2rem auto;
 }
-
 </style>

@@ -64,6 +64,12 @@
             >
 				Valider
             </button>
+
+			<button id="connexion"
+                @click="connexion()"
+            >
+                Connexion
+            </button>
         </form>
         </section>
 	</div>
@@ -113,8 +119,11 @@
 				[VUE] Methods => https://bit.ly/3GdqmXg
 				Used to add methods in Vue.js component
 			*/
-				methods:{ },
-			//
+				methods:{
+					connexion(){
+						this.$router.push('/Connexion');
+					}
+				},			//
 
 			/*
 				[VUE] Hooks => https://bit.ly/3s7AwEa
