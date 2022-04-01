@@ -10,6 +10,8 @@
 				:key="`item-film-${idx}`"
 				class="flex-item"
 			>
+			<img :src="item.icon" />
+
 				<FilmItem 
 					:item="item"
 				/>
@@ -82,11 +84,10 @@
 				data(){
 					return {
 						cmpFilmList: [
-							{ title: `Akira` },
-							{ title: `Wayne's World` },
-							{ title: `Daryl` },
-							{ title: `Qui veut la peau de Roger Rabbit` },
-							{ title: `Le guide du voygeur Intercalactique` },
+							{ title: `Uncharted`, icon: require('@/assets/image/uncharted.png') },
+							{ title: `Matrix Ressurections`, icon: require('@/assets/image/matrix.png') },
+							{ title: `Scream`, icon: require('@/assets/image/scream.png') },
+							{ title: `The King's Man`, icon: require('@/assets/image/kingsman.png') },
 						]
 					}
 				},
