@@ -16,40 +16,6 @@
 				/>
 			</article>
 		</section>
-        <section class="form">
-        <form 
-            action="#"
-            @submit="onSubmit"
-        >
-            <!-- Directive v-model => input.value -->
-            <div>
-                <label for="mail">E-mail :</label>
-                <input 
-                    type="email" name="user_mail" id="mail" 
-                    placeholder="E-mail" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]{2,4}$"
-                >
-            </div>
-            <div>
-                <label for="pass">Password (8 characters minimum) :</label>
-                <input 
-                    type="password" name="password" id="pass" 
-                    required minlength="8" placeholder="Mot de passe"
-                >
-            </div>
-            <!-- Use cmpFormData for validation -->
-            <button 
-                type="submit"
-            >
-				Connectez-vous !
-            </button>
-			<button id="connexion"
-				@click="profil()"
-			>
-			( Si valide, ouvre profil )
-			</button>
-
-        </form>
-        </section>
 	</div>
 
 </template>
@@ -97,11 +63,7 @@
 				[VUE] Methods => https://bit.ly/3GdqmXg
 				Used to add methods in Vue.js component
 			*/
-				methods:{
-						profil(){
-						this.$router.push('/Profil');
-					}
-				},
+				methods:{ },
 			//
 
 			/*

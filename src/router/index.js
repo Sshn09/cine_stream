@@ -33,6 +33,11 @@ const routerPath = [
         name: 'ConnexionView',
         component: () => import('../views/ConnexionView.vue'),
     },
+    {
+        path: '/profil',
+        name: 'ProfilView',
+        component: () => import('../views/ProfilView.vue'),
+    },
 ];
 //
 

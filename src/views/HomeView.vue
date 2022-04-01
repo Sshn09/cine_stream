@@ -19,7 +19,7 @@
 			<button 
                 @click="formulaire()"
             >
-                Valider
+                Cliquez ici pour commencer
             </button>
 			<button id="connexion" 
                 @click="connexion()"
