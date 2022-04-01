@@ -16,7 +16,6 @@
 #app{
     font-size: var(--font-size);
 }
-
 header img {
     width: 7rem;
     position: absolute;
