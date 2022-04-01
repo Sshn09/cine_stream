@@ -2,7 +2,6 @@
 	<div 
 		class="form-view-component"
 	>
-    
 		<section
 			class="flex-container"
 		>

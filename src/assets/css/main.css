@@ -1,14 +1,14 @@
-.small-theme{
+.small-theme .icon{
     --flex-item-width: 100%;
     --font-size:2rem;
 }
 
-.medium-theme{
+.medium-theme .icon{
     --flex-item-width: 40%;
     --font-size:1.5rem;
 }
 
-.large-theme{
+.large-theme .icon{
     --flex-item-width: 15%;
     --font-size:1rem;
 }

@@ -10,10 +10,13 @@
 				:key="`item-film-${idx}`"
 				class="flex-item"
 			>
+			<img :src="item.icon" />
+
 				<FilmItem 
 					:item="item"
 				/>
 			</article>
+			
 			
 		</section>
 			<button 
@@ -61,11 +64,10 @@
 				data(){
 					return {
 						cmpFilmList: [
-							{ title: `Akira` },
-							{ title: `Wayne's World` },
-							{ title: `Daryl` },
-							{ title: `Qui veut la peau de Roger Rabbit` },
-							{ title: `Le guide du voygeur Intercalactique` },
+							{ title: `Akira`, icon: require('@/assets/image/uncharted.png') },
+							{ title: `Wayne's World`, icon: require('@/assets/image/matrix.png') },
+							{ title: `Daryl`, icon: require('@/assets/image/scream.png') },
+							{ title: `Qui veut la peau de Roger Rabbit`, icon: require('@/assets/image/kingsman.png') },
 						]
 					}
 				},
