@@ -46,7 +46,7 @@
 							para: 'Tous les mois profitez de toutes les nouveautés série et cinéma. A partir du mois prochain on vous propose tous les classiques du cinéma. Où que vous soyez. Tous les films en VO, VOST, VF et plus doptions',
 							image: '@/assets/logo5.png'
 						},
-						cmpFooterContent: ' Stream Cine - 2022'
+						cmpFooterContent: ' Stream Cine - All rights reserved for educational purposes only'
 					};
 				},
 			//
