@@ -28,10 +28,10 @@ Pour commencer vous devez tout simplement mettre en place une structure html sé
 
 # Maquette 
 
-<img src="./asset/readme/index.png" alt="index">
+<img src="./src/assets/image/readme/index.png" alt="index">
 
-<img src="./asset/readme/formulaire.png" alt="formulaire">
+<img src="./src/assets/image/readme/formulaire.png" alt="formulaire">
 
 # Charte Graphique
 
-<img src="./asset/readme/Couleur.png" alt="couleur_charte">
+<img src="./src/assets/image/readme/Couleur.png" alt="couleur_charte">
