@@ -27,7 +27,6 @@ header{
     position: relative;
     top: 1rem;
 }
-
 h1 {
     text-align: center;
     margin: 1%;
@@ -48,7 +47,6 @@ h2 {
     text-align: center;
     margin: 2%;
 }
-
 #rep p{
     border:1px;
     border-style:solid;
@@ -59,7 +57,6 @@ h2 {
     margin-left: 19%;
     margin-right: 20%;
 }
-
 body{
     font: 1.6rem 'Raleway',sans-serif;
     margin: 0;
@@ -83,6 +80,9 @@ button{
 input,textarea{
     border: 0;
 }
+
+/* Formulaire */
+
 .form form {
     max-width: 50rem;
     margin: 0 auto;
@@ -95,12 +95,14 @@ input,textarea{
     color: #FFFFFF;
     text-align: left;
 }
-
 .form form input{
     border: .1rem solid black;
     padding: 1rem;
     border-radius: .5rem;
     width: 100%;
+}
+.form select{
+    text-align: center;
 }
 .form form [placeholder] {
     font-size: inherit;
