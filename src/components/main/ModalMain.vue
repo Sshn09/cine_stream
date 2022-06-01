@@ -1,12 +1,24 @@
 <template>
-	<header 
-		class="header-main-component"
-	>
-		<a href="/">
-			<img :src="require('@/assets/logo5.png')" :alt="cmpTitle">
-		</a>
-		<h1>{{ cmpTitle }}</h1>
-	</header>
+        <figure class="modale" role="groupe">
+        <button aria-label="closed">
+            <span class="material-icons"></span>
+        </button>
+        <img 
+            :src="cmpContent.icon" :alt="cmpContent.title"
+            @click="$emit('onCloseModal')"
+        >
+        <figcaption class="desc">
+            <h3> {{cmpContent.title}} </h3>
+            <p>
+                <b>Description : </b>{{cmpContent.description}}
+            </p>
+            <time itemprop="datePublished" class="date"><b>Sortie : </b>{{cmpContent.date}}</time>
+            <p itemprop="keywords" class="genre"><b>Genre : </b>{{cmpContent.type}}</p>
+            <time itemprop="duration" class="duree"><b>Durée : </b>{{cmpContent.times}}</time>
+            
+        </figcaption>
+        <a href="./liste_film.html" type="button" class="vplus">Aller au synopsis</a>
+    </figure>
 </template>
 
 <script>
@@ -16,7 +28,7 @@
 	*/
 		export default {
 			// [VUE] Component name
-			name: 'HeaderMain',
+			name: 'ModalMain',
 
 			/*
 				[VUE] Components => https://bit.ly/3GdqmXg
@@ -33,7 +45,7 @@
 					item: {
 						type: Object,
 						required: true,
-						dafault: () => {},
+						default: () => undefined
 					}
 				},
 			//
@@ -43,25 +55,9 @@
                 Used to use objet preperties from parent child
             */
 				computed: {
-					cmpTitle: function(){
-						if( this.item && this.item.title){
-							return this.item.title;
-						}
-						else { 
-							return undefined 
-						}
-					},
-						cmpSubTitle: function(){
-						if( this.item && this.item.subtitle){
-							return this.item.subtitle;
-						}
-						else { 
-							return undefined 
-						}
-					},
-						cmpPara: function(){
-						if( this.item && this.item.para){
-							return this.item.para;
+					cmpContent: function(){
+						if( this.item ){
+							return this.item;
 						}
 						else { 
 							return undefined 
@@ -86,7 +82,7 @@
 			*/
 				methods:{ },
 			//
-
+			
 			/*
 				[VUE] Hooks => https://bit.ly/3s7AwEa
 				Used for Vue.js component life cycle
@@ -150,6 +146,4 @@
 		}
 	//
 </script>
-<style scoped>
-
-</style>
+<style scoped></style>

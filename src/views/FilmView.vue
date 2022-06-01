@@ -101,4 +101,15 @@
 		}
 	//
 </script>
-<style scoped></style>
+<style scoped>
+.flex-container{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+.flex-item{
+	width: var(--flex-item-width);
+	border: 0.1rem solid red;
+	text-align: center;
+    margin: 2rem auto;
+}</style>

@@ -1,74 +1,67 @@
-<template>
-	<header 
-		class="header-main-component"
-	>
-		<a href="/">
-			<img :src="require('@/assets/logo5.png')" :alt="cmpTitle">
-		</a>
-		<h1>{{ cmpTitle }}</h1>
-	</header>
+<template> 
+	<section class="form">
+		<h2 id=formremp> <b> Connectez-vous ! </b> </h2>
+
+		        <form action="/formulaire" method="post">
+                <label for="name">Nom :</label>
+                <input 
+                type="text" id="name" placeholder="Nom" name="user_name" required
+                v-model="cmpFormContent.nom"
+                >
+                <label for="prenom">Prénom :</label>
+                <input 
+                type="text" id="prenom" placeholder="Prénom" name="user_prenom" required
+                v-model="cmpFormContent.prenom"
+                >
+                <label for="mail">E-mail :</label>
+                <input 
+                v-model="cmpFormContent.email"
+                type="email" id="mail" placeholder="E-mail" name="user_mail" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]{2,4}$">
+                <label for="pass">Password (8 characters minimum):</label>
+                <input 
+                type="password" id="pass" placeholder="Mot de passe" name="password" minlength="8" required
+                v-model="cmpFormContent.password"
+                >
+                <label for="ville">Ville :</label>
+                <select 
+                id="ville" name="user_ville"
+                v-model="cmpFormContent.ville"
+                >
+                    <option>Paris</option>
+                    <option>Marseille</option>
+                    <option>Lille</option>
+                    <option>Lyon</option>
+                </select>
+            
+            <input type="submit" value="Valider">
+            
+            <div id="connexion">
+                <a class="bouton" href="page_connexion.html">Connexion</a>
+            </div>
+
+        </form>
+	</section>
 </template>
 
 <script>
+	/* 
+		[IMPORT] Child
+	*/
+	//
+
 	/*
 		[VUE] Component
 		Define properties and methods => https://bit.ly/3GdqmXg
 	*/
 		export default {
 			// [VUE] Component name
-			name: 'HeaderMain',
+			name: 'ConnexionView',
 
 			/*
 				[VUE] Components => https://bit.ly/3GdqmXg
 				Used to inject children components
 			*/
-				components: {},
-			//
-
-            /*
-                [VUE] Props => https://bit.ly/3KSrvau
-                Used to inject values from parent componet
-            */
-				props: {
-					item: {
-						type: Object,
-						required: true,
-						dafault: () => {},
-					}
-				},
-			//
-
-			/*
-                [VUE] computed => https://bit.ly/3KSrvau
-                Used to use objet preperties from parent child
-            */
-				computed: {
-					cmpTitle: function(){
-						if( this.item && this.item.title){
-							return this.item.title;
-						}
-						else { 
-							return undefined 
-						}
-					},
-						cmpSubTitle: function(){
-						if( this.item && this.item.subtitle){
-							return this.item.subtitle;
-						}
-						else { 
-							return undefined 
-						}
-					},
-						cmpPara: function(){
-						if( this.item && this.item.para){
-							return this.item.para;
-						}
-						else { 
-							return undefined 
-						}
-					}
-					
-				},
+				components: {  },
 			//
 
 			/*
@@ -76,7 +69,15 @@
 				Used to inject data in the Vue.js component
 			*/
 				data(){
-					return { }
+					return {
+						cmpFormContent: {
+                            nom: undefined,
+                            prenom:undefined,
+							email: undefined,
+							password: undefined,
+                            ville: undefined
+						}
+					}
 				},
 			//
 
@@ -84,7 +85,7 @@
 				[VUE] Methods => https://bit.ly/3GdqmXg
 				Used to add methods in Vue.js component
 			*/
-				methods:{ },
+				methods:{},
 			//
 
 			/*
@@ -151,5 +152,4 @@
 	//
 </script>
 <style scoped>
-
 </style>

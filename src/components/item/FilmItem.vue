@@ -2,7 +2,7 @@
 	<div 
 		class="film-item-component"
 	>
-		<p>{{ cmpTitle }}</p>
+		<img :src="cmpIcon" :alt="cmpTitle">
 	</div>
 </template>
 
@@ -31,14 +31,22 @@
 			},
 
 			computed: {
-					cmpTitle: function(){
-						if( this.item && this.item.title){
-							return this.item.title;
-						}
-						else { 
-							return undefined 
-						}
-					},
+				cmpTitle: function(){
+					if( this.item && this.item.title){
+						return this.item.title;
+					}
+					else { 
+						return undefined 
+					}
+				},
+				cmpIcon: function(){
+					if( this.item && this.item.icon){
+						return this.item.icon;
+					}
+					else { 
+						return undefined 
+					}
+				},
 			},
 
 			/*

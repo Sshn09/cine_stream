@@ -1,12 +1,28 @@
 <template>
-	<header 
-		class="header-main-component"
-	>
-		<a href="/">
-			<img :src="require('@/assets/logo5.png')" :alt="cmpTitle">
-		</a>
-		<h1>{{ cmpTitle }}</h1>
-	</header>
+	<form action="/formulaire" method="post">
+		<label for="name">Nom :</label>
+		<input type="text" id="name" placeholder="Nom" name="user_name" required>
+		<label for="prenom">Prénom :</label>
+		<input type="text" id="prenom" placeholder="Prénom" name="user_prenom" required>
+		<label for="mail">E-mail :</label>
+		<input type="email" id="mail" placeholder="E-mail" name="user_mail" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]{2,4}$">
+		<label for="pass">Password (8 characters minimum):</label>
+		<input type="password" id="pass" placeholder="Mot de passe" name="password" minlength="8" required>
+		<label for="ville">Ville :</label>
+		<select id="ville" name="user_ville">
+			<option>Paris</option>
+			<option>Marseille</option>
+			<option>Lille</option>
+			<option>Lyon</option>
+		</select>
+
+		<input type="submit" value="Valider">
+
+		<div id="connexion">
+			<a class="bouton" href="page_connexion.html">Connexion</a>
+		</div>
+
+	</form>
 </template>
 
 <script>
@@ -16,7 +32,7 @@
 	*/
 		export default {
 			// [VUE] Component name
-			name: 'HeaderMain',
+			name: 'RegisterForm',
 
 			/*
 				[VUE] Components => https://bit.ly/3GdqmXg
@@ -33,7 +49,7 @@
 					item: {
 						type: Object,
 						required: true,
-						dafault: () => {},
+						default: () => undefined
 					}
 				},
 			//
@@ -43,25 +59,9 @@
                 Used to use objet preperties from parent child
             */
 				computed: {
-					cmpTitle: function(){
-						if( this.item && this.item.title){
-							return this.item.title;
-						}
-						else { 
-							return undefined 
-						}
-					},
-						cmpSubTitle: function(){
-						if( this.item && this.item.subtitle){
-							return this.item.subtitle;
-						}
-						else { 
-							return undefined 
-						}
-					},
-						cmpPara: function(){
-						if( this.item && this.item.para){
-							return this.item.para;
+					cmpFormContent: function(){
+						if( this.item ){
+							return this.item;
 						}
 						else { 
 							return undefined 
@@ -86,7 +86,7 @@
 			*/
 				methods:{ },
 			//
-
+			
 			/*
 				[VUE] Hooks => https://bit.ly/3s7AwEa
 				Used for Vue.js component life cycle
@@ -150,6 +150,4 @@
 		}
 	//
 </script>
-<style scoped>
-
-</style>
+<style scoped></style>

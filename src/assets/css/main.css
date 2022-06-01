@@ -16,6 +16,28 @@
 #app{
     font-size: var(--font-size);
 }
+html{
+    font-size: 62.5%;
+}
+body{
+    font: 1.6rem 'Raleway',sans-serif;
+    margin: 0;
+    background-color: #252525;
+    line-height: 1.6;
+    text-rendering:optimizeLegibility;
+    color: #FFFFFF;
+}
+h1,h2,h3,h4,p,ul,ol, figure{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-weight: 200;
+}
+*{
+    box-sizing: border-box;
+    max-width: 120rem;
+    margin: 0 auto;
+}
 header img {
     width: 7rem;
     position: absolute;
@@ -45,17 +67,14 @@ h1, footer, a {
 
 h2 {
     text-align: center;
-    margin: 2%;
+    padding: 1rem;
 }
 #rep p{
     border:1px;
     border-style:solid;
     border-color:#FFFFFF;
     text-align: center;
-    margin: 2%;
     padding: 2%;
-    margin-left: 19%;
-    margin-right: 20%;
 }
 body{
     font: 1.6rem 'Raleway',sans-serif;
@@ -123,4 +142,13 @@ form {
 #connexion{
     background-color: transparent;
     text-align: center;
+}
+
+@media  screen and (max-width: 80rem) {
+    header img {
+        position:static;
+    }
+    #rep p{
+        text-align: justify;
+    }
 }

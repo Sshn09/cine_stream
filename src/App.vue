@@ -1,54 +1,35 @@
 <template>
-	<div id="app" :class="cmpMainTheme">
+	<div id="app">
       <HeaderMain
 		:item="cmpHeaderContent"
 		/>
 		<transition>
-			<section
-				class="modal-window"
+			<ModalMain
+				:item="modalContent"
 				v-if="modalContent !== undefined"
-			>
-				<article>
-					<h1>I'm a Modal</h1>
-					{{modalContent}}
-
-					<button
-						@click="modalContent = undefined"
-					>
-						close
-					</button>
-				</article>
-			</section>
+				@onCloseModal="modalContent = undefined"
+			/>
 		</transition>
-
-		<ul class="list-container">
-			<li
-				v-for="(item,idx) of cmpFilmList"
-				:key="idx"
-			>
-				<button
-					@click="modalContent = item"
-				>
-					{{item.title}}
-				</button>
-			</li>
-		</ul>
-
 		<main>
-			<router-view :key="$route.name" />
+			<router-view :key="$route.name" 
+				@onDisplayFilm="openModal"
+			/>
 		</main>
 
-      <FooterMain
-		:item="cmpFooterContent"
+		<FooterMain
+			:item="cmpFooterContent"
+			@onRegistrer="$router.push('/inscription')"
+			@onLogin="$router.push('/connexion')"
 		/>
+		
 	</div>
 </template>
 
 <script>
-
-      import HeaderMain from './components/main/HeaderMain.vue';
-      import FooterMain from './components/main/FooterMain.vue';
-  /*
+	import HeaderMain from './components/main/HeaderMain.vue';
+	import FooterMain from './components/main/FooterMain.vue';
+	import ModalMain from './components/main/ModalMain.vue';
+	/*
 		[VUE] Component
 		Define properties and methods => https://bit.ly/3GdqmXg
 	*/
@@ -60,7 +41,7 @@
 				[VUE] Components => https://bit.ly/3GdqmXg
 				Used to inject children components
 			*/
-				components: { HeaderMain, FooterMain },
+				components: { HeaderMain, FooterMain, ModalMain },
 			//
 
 			/*
@@ -69,7 +50,7 @@
 			*/
 				data: function() {
 					return {
-						cmpMainTheme: 'medium-theme',
+						cmpMainTheme: 'large-theme',
 						cmpHeaderContent: {
 							title: 'Stream Cine',
 							subtitle: 'Prêt à regarder? Remplissez le formulaire proposé dans cette page',
@@ -78,32 +59,7 @@
 						},
 						modalIsActive: false,
 						modalContent: undefined,
-						cmpFilmList: [
-							{ 
-							title: `Uncharted`,
-							icon: require('@/assets/image/uncharted.png'),
-							content:'dsdscd',
-							id:0
-							},							
-							{
-							title: `Matrix Ressurections`,
-							icon: require('@/assets/image/matrix.png'),
-							content:'sdcsd',
-							id:1
-							},
-							{
-							title: `Scream`,
-							icon: require('@/assets/image/scream.png'),
-							content: 'sjsjs',
-							id:2
-							},
-							{
-							title: `The King's Man`,
-							icon: require('@/assets/image/kingsman.png'),
-							content: 'sksk',
-							id:3
-							},
-						],
+						
 						cmpFooterContent: ' Stream Cine - All rights reserved for educational purposes only'
 					}
 				},
@@ -114,18 +70,10 @@
 				Used to check 'data' sub-properties or 'props' before use it
 			*/
 				methods: {
-					/* 
-						[UI] initUserInterface()
-						Used to define main HTML tags height
-					*/
-						initUserInterface: async function() {
-							window.addEventListener('resize', () => {
-								if (window.innerWidth <= 600) { this.cmpMainTheme = "small-theme" }
-								else if (window.innerWidth > 600 && window.innerWidth < 1200) { this.cmpMainTheme = "medium-theme" }
-								else if (window.innerWidth >= 1200) { this.cmpMainTheme = "large-theme" }
-							})
-						},
-					//
+					openModal: function(item) {
+						console.log(item)
+						this.modalContent = item
+					}
 				},
 			//
 
@@ -150,7 +98,6 @@
 							[UI] initUserInterface()
 							Used to define main HTML tags height
 						*/
-							this.initUserInterface();
 						//
 					},
 				//
@@ -193,48 +140,8 @@
 		}
 	//
 </script>
-<style src="@/assets/css/main.css"></style>
+<style src="@/assets/css/style.css"></style>
 <style scoped></style>
 <style>
-/*.list-container{
-	position: relative;
-	z-index: 1;
-}*/
-.modal-window{
-	background: #00000096;
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100vw;
-	height: 100vh;
-	transition: opacity .3s;
-	display: flex;
-	flex-direction: column;
-}
-.modal-window article{
-	position: relative;
-	background: white;
-	width: 50%;
-	height: 50%;
-	margin: auto;
-	border-radius: 10px;
-	padding: 20px;
-}
-.modal-window article button{
-	position: absolute;
-	bottom: 100%;
-	right: 0;
-}
-/*.is-active{
-	z-index: 2;
-	opacity: 1;
-}*/
-.v-enter-active,
-.v-leave-active{
-	transition: opacity 0.5s ease;
-}
-.v-enter-from,
-.v-leave-to{
-	opacity: 0;
-}
+
 </style>

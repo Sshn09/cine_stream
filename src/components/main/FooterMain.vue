@@ -2,6 +2,20 @@
 	<footer 
 		class="footer-main-component"
 	>
+		<button 
+			class="bouton"
+			@click="$emit('onRegistrer')"
+		>
+		Cliquez ici pour commencer !
+		</button>
+
+		<button 
+			id="connexion"
+			class="bouton"
+			@click="$emit('onLogin')"
+		>
+		Connexion
+		</button>
 		<p>{{cmpContent}}</p>
 	</footer>
 </template>

@@ -1,6 +1,6 @@
 <template> 
-	<section class="form list_img">
-		<article 
+    <section class="form list_img"> 
+        <article 
 			v-for="(item, idx) in cmpFilmList" 
 			:key="`item-film-${idx}`"
 			@click="$emit('onDisplayFilm', item)"
@@ -9,30 +9,30 @@
 				:item="item"
 			/>
 		</article>
-		<h2 id=formremp> <b> Connectez-vous ! </b> </h2>
+        <form action="/formulaire" method="post">
+                <!-- <label for="name">Nom :</label>
+                <input type="text" id="name" placeholder="Nom" name="user_name" required>
+                <label for="prenom">Prénom :</label>
+                <input type="text" id="prenom" placeholder="Prénom" name="user_prenom" required>
+                <label for="mail">E-mail :</label>
+                <input type="email" id="mail" placeholder="E-mail" name="user_mail" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]{2,4}$">
+                <label for="pass">Password (8 characters minimum):</label>
+                <input type="password" id="pass" placeholder="Mot de passe" name="password" minlength="8" required>
+                <label for="ville">Ville :</label>
+                <select id="ville" name="user_ville">
+                    <option>Paris</option>
+                    <option>Marseille</option>
+                    <option>Lille</option>
+                    <option>Lyon</option>
+                </select>
+            
+            <input type="submit" value="Valider">
+            
+            <div id="connexion">
+                <a class="bouton" href="page_connexion.html">Connexion</a>
+            </div> -->
 
-		<form action="/connexion" method="post">
-				<!-- <label for="mail">E-mail :</label>
-				<input 
-					type="email" id="mail" placeholder="E-mail" name="user_mail" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]{2,4}$"
-					v-model="cmpFormContent.email"
-				>
-				<label for="pass">Password (8 characters minimum):</label>
-				<input 
-					type="password" id="pass" placeholder="Mot de passe" name="password" minlength="8" required
-					v-model="cmpFormContent.password"
-				>
-			
-			<input 
-			type="submit" value="Valider"
-			:disabled="cmpFormContent.email===undefined || cmpFormContent.password===undefined"
-			>
-			
-
-			<div id="connexion">
-				<a class="bouton" href="profil.html"> ( Si valide, ouvre profil )</a>
-			</div> -->
-			<div
+            <div
 				v-for="(item, idx) in cmpFormValue" 
 				:key="`item-${idx}`"
 			>
@@ -46,12 +46,8 @@
 				v-model="item.value"
 				>
 			</div>
-			<input 
-			type="submit" value="Valider"
-			:disabled="cmpFormContent.email===undefined || cmpFormContent.password===undefined"
-			>
-		</form>
-	</section>
+        </form>
+    </section>
 </template>
 
 <script>
@@ -60,13 +56,14 @@
 	*/
 	//
     import FilmItem from '../components/item/FilmItem.vue'
+
 	/*
 		[VUE] Component
 		Define properties and methods => https://bit.ly/3GdqmXg
 	*/
 		export default {
 			// [VUE] Component name
-			name: 'ConnexionView',
+			name: 'RegisterView',
 
 			/*
 				[VUE] Components => https://bit.ly/3GdqmXg
@@ -74,14 +71,13 @@
 			*/
 				components: { FilmItem },
 			//
-
 			/*
 				[VUE] Data => https://bit.ly/3GdqmXg
 				Used to inject data in the Vue.js component
 			*/
 				data(){
 					return {
-						cmpFilmList: [
+                        cmpFilmList: [
 							{
 								icon: "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/sqLowacltbZLoCa4KYye64RvvdQ.jpg",
 								title: "Uncharted",
@@ -126,10 +122,25 @@
 							},
 						],
 						cmpFormContent: {
+                            nom: undefined,
+                            prenom:undefined,
 							email: undefined,
 							password: undefined,
+                            ville: undefined
 						},
 						cmpFormValue: {
+                            nom:{
+                                label:"Votre Nom",
+                                placeholder:"Votre nom",
+                                value:undefined,
+                                required:true,
+                            },
+                            prenom:{
+                                label:"Votre Prenom",
+                                placeholder:"Votre prenom",
+                                value:undefined,
+                                required:true,
+                            },
 							email:{
 								label:"Votre Email",
 								placeholder: "Adresse email valide",
@@ -144,20 +155,16 @@
 								required: true,
 								min: 8
 							}
-						
 						}
 					}
-
 				},
 			//
-
 			/*
 				[VUE] Methods => https://bit.ly/3GdqmXg
 				Used to add methods in Vue.js component
 			*/
 				methods:{},
 			//
-
 			/*
 				[VUE] Hooks => https://bit.ly/3s7AwEa
 				Used for Vue.js component life cycle
@@ -168,15 +175,12 @@
 				*/
 					created: async function(){},
 				//
-				
-
 				/* 
 					[HOOK] Mounted
 					Called after the instance has been mounted
 				*/
 					mounted: async function(){},
 				//
-
 				/* 
 					// Called synchronously after the instance has been initialized
 					created: async function(){},

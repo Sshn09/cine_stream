@@ -24,9 +24,9 @@ const routerPath = [
         component: () => import('../views/FilmView.vue'),
     },
     {
-        path: '/formulaire',
-        name: 'FormView',
-        component: () => import('../views/FormView.vue'),
+        path: '/inscription',
+        name: 'RegisterView',
+        component: () => import('../views/RegisterView.vue'),
     },
     {
         path: '/connexion',

@@ -1,0 +1,340 @@
+/* reset CSS */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400&display=swap');
+html{
+    font-size: 62.5%;
+}
+body{
+    font: 1.6rem 'Raleway',sans-serif;
+    margin: 0;
+    background-color: #252525;
+    line-height: 1.6;
+    text-rendering:optimizeLegibility;
+    color: #FFFFFF;
+}
+h1,h2,h3,h4,p,ul,ol, figure{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-weight: 200;
+}
+*{
+    box-sizing: border-box;
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+img{
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+    object-fit: cover;
+}
+
+.list_img {
+    display: grid;
+    grid-template-columns: repeat(4, 3fr);
+    gap: 1rem;
+    margin-top: 2rem;
+}
+ul figure .material-icons{
+    vertical-align: -.4rem;
+}
+.list_img li:hover{
+    color: rgba(187, 187, 187, 1);
+    transition: 1s;
+}
+ul figure{
+    position: relative;
+}
+
+a{
+    text-decoration: none;
+}
+
+button, input[type="submit"]{
+    padding: 1.5rem;
+    display: block;
+    width: 20rem;
+    background-color: #640707;
+    font-size: inherit;
+    border: 0;
+    color: #FFFFFF;
+    margin: 1rem auto;
+    line-height: 4.5rem;
+}
+h1, footer, a {
+    color: #FFFFFF;
+    margin-top: 2%;
+    text-align: center;
+}
+#rep h2{
+    text-align: center;
+    padding: 1rem;
+}
+#rep p{
+    border:1px;
+    border-style:solid;
+    border-color:#FFFFFF;
+    text-align: center;
+    padding: 2%;
+}
+#formremp{
+    text-align: center;
+    margin-top: 1%;
+}
+header img {
+    width: 7rem;
+    position: absolute;
+    top: -1rem;
+    left: 30%;
+    z-index: 1;
+}
+header{
+    position: relative;
+    top: 1rem;
+    text-align: center;
+}
+h1 {
+    text-align: center;
+    margin: 1%;
+    padding: 1%;
+    margin-left: 22%;
+    margin-right: 22%;
+    font-size: xx-large;
+    font-weight: bold;
+}
+main a{
+    background-color: #640707;
+    color: #fafafa;
+    padding: 1.5rem;
+    text-align: center;
+    display: block;
+    width: 25rem;
+    margin: 1rem auto;
+}
+
+/* Formulaire */
+
+.form form input, .form form label{
+    display: block;
+}
+.form form label{
+    margin-top: 2rem;
+    color: #FFFFFF;
+    text-align: left;
+    width: 100%;
+}
+
+.form form input{
+    border: .1rem solid black;
+    padding: 1rem;
+    border-radius: .5rem;
+    width: 100%;
+}
+.form select{
+    text-align: center;
+    width: 100%;
+}
+.form form [placeholder] {
+    font-size: inherit;
+    color: #222;
+}
+form input:not(input[type="submit"]), form select {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    outline: none;
+}
+form {
+    display: flex;
+    flex-direction: column;
+}
+.form input:invalid {
+    border: #ff0000;
+}
+
+/* one page film*/
+
+h2 h4 {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-weight: 200;
+    text-align: center;
+    display: flex;
+}
+
+/* Modals */
+
+ul figure figcaption{
+        display: grid;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        background-color: rgba(0,0,0,0.6);
+        align-items: center;
+        transform: scale(0);
+        transition: all 500ms ease-in-out;
+        text-align: center;
+    }
+ul figure:hover figcaption{
+    transform: scale(1);
+    cursor: pointer;
+}
+ .modale{
+    max-width: 80rem;
+    padding: 1rem;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    box-shadow: 0 0 1rem rgba(0,0,0,0.6);
+    z-index: 1;
+    cursor: pointer;
+    transition: all 500ms ease-in-out;    
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+.modale .desc{
+    position: static;
+    transition: none;
+    background-color: #fff;
+    color: #222;
+}
+.modale-active{
+    z-index: 1;
+    opacity: 1;
+    transform-origin: center center;
+}
+.modale .desc h3{
+    font-size: x-large;
+    font-weight: 400;
+    background-color: #222;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+}
+.modale .desc p :is(time){
+    padding: 1rem;
+}
+.modale button{
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    font-size: 2rem;
+    z-index: 2;
+    cursor: pointer;
+    background-color: transparent;
+}
+#connexion a{
+    background-color: transparent;
+}
+.modale .vplus{
+    display: block;
+    text-align: center;
+    margin-top: 0;
+    padding: 0.2rem;
+    background-color: #640707;
+    color: #FFFFFF;
+    grid-column: 3 / 1;
+    z-index: 3;
+    width: 100%;
+    line-height: 3.5rem;
+    border-radius: .4rem;
+}
+
+.list_film {
+    display: grid;
+    grid-template-columns: repeat(4, 3fr);
+    gap: 1rem;
+    margin-top: 1rem;
+}
+.list_film li:hover{
+    color: rgba(187, 187, 187, 1);
+    transition: 1s;
+}
+ul figure{
+    position: relative;
+}
+.list_film a{
+    background-color: transparent;
+}
+/* single page synopsis*/
+.film-one-page{
+    max-width: 80rem;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    text-align: center;
+    margin: 0 auto;
+}
+.film-one-page img{
+    max-width: 100%;
+    display: block;
+
+}
+.film-one-page .film-info-page{
+    display: block;
+    max-width: 100%;
+    margin: 0 auto;
+    text-align: justify;
+}
+.film-one-page .film-info-page h2, .film-one-page .film-info-page p, .film-one-page .film-info-page time{
+    margin-bottom: 1rem;
+}
+.film-one-page .film-info-page h2{
+    text-align: center;
+}
+.sous-titre{
+    display: flex;
+}
+
+/* media queris */
+@media screen and (max-width: 80.0rem){ /* mode portrait */
+    body{
+        margin: 0 1%;
+    }
+    header img {
+        width: 7.0rem;
+        position: static;
+        
+    }
+    #rep p{
+        text-align: justify;
+    }
+    .modale{
+        width: 100%;
+    }
+    .film-one-page{
+        
+        display: block;
+     
+    }
+    .film-one-page p{
+        padding: .5rem;
+    }
+    
+}
+@media screen and (orientation: landscape){ /* mode paysage */
+    header img {
+        width: 7.0rem;
+        position: absolute;
+        height: auto;
+    }
+    #rep p{
+        text-align: center;
+    }
+    .modale{
+        max-width: 50rem;
+    }
+    .film-one-page{
+        display: grid;
+    }
+}
