@@ -9,18 +9,57 @@
 			:key="`item-film-${idx}`"
 			@click="$emit('onDisplayFilm', item)"
 		>
+			<!--v-for="(item, idx) in cmpFilmList" 
+			:key="`item-film-${idx}`"
+			@click="$emit('onDisplayFilm', item)"-->
+			<!-- {{ item }}-->
+<!-- 			<button 
+				class="bouton"
+				@click="$emit('netflix', getmovielist)"
+			>
+				Netflix
+			</button>
+			<button 
+				class="bouton"
+				@click="$emit('streaming')"
+			>
+				Amazon Prime
+			</button> -->
+
 			<FilmItem 
-				:item="item"
-			/>
+			:item="item"/>
 		</article>
+								<button 
+									class="bouton"
+									@click="$emit('onRegistrer')"
+									@onRegistrer="$router.push('/inscription')"
+
+								>
+								Cliquez ici pour commencer !
+								</button>
+
+								<button 
+									id="connexion"
+									class="bouton"
+									@click="$emit('onLogin')"
+								>
+								Connexion
+								</button>
 	</section>
 </template>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
 <script>
 	/* 
 		[IMPORT] Child
+		- ajouter un bouton netflix
+		-ajouter un bouton prime
+		-capter click sur le bouton netflix ou prime
+		-appeler method getmovielist pour netflix et prime
+		-changer cmplistmovie par list de netflix ou prime 
 	*/
 		import FilmItem from '../components/item/FilmItem.vue'
+		const axios = require("axios");
 	//
 
 	/*
@@ -52,12 +91,6 @@
 			*/
 				data(){
 					return {
-						/* cmpFilmList: [
-							{ title: `Uncharted`, icon: require('@/assets/image/uncharted.png') },
-							{ title: `Matrix Ressurections`, icon: require('@/assets/image/matrix.png') },
-							{ title: `Scream`, icon: require('@/assets/image/scream.png') },
-							{ title: `The King's Man`, icon: require('@/assets/image/kingsman.png') },
-						] */
 						cmpFilmList: [
 							{
 								icon: "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/sqLowacltbZLoCa4KYye64RvvdQ.jpg",
@@ -66,11 +99,9 @@
 								date: "16/02/2022",
 								type: "Action, Aventure",
 								times: "1h56" ,
-								link: "./page_film/Uncharted.html"
+								link: "./film/Uncharted"
 							},
 							{
-							
-							
 								icon: "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/iKKlWGWwHZxbMaxm6QUL6QYaH5y.jpg",
 								title: "Matrix Resurretcions" ,
 								description: "Dix-huit ans après les événements de Matrix Revolutions, Thomas A. Anderson (alias Neo) ne se souvient plus de rien et mène une vie d'apparence normale à San Francisco. ",
@@ -80,8 +111,6 @@
 								link: "./page_film/Matrix.html"
 							},
 							{
-							
-							
 								icon: "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/8ITQyhyoBcFvrSJWmz6OykMElfp.jpg",
 								title: "Scream" ,
 								description: "Vingt-cinq ans après que la paisible ville de Woodsboro a été frappée par une série de meurtres violents, un nouveau tueur revêt le masque de Ghostface et prend pour cible un groupe d’adolescents." ,
@@ -91,8 +120,6 @@
 								link: "./page_film/scream.html"
 							},
 							{
-							
-							
 								icon: "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/lnOs1M73TTEG82Y0EYP6YXBut3k.jpg",
 								title: "The King's Man" ,
 								description: "En 1902, l'aristocrate Orlando, duc d'Oxford, perd sa femme Emily lors d'une mission humanitaire en Afrique du Sud lors de la seconde guerre des Boers ; leur jeune fils Conrad assiste lui aussi à sa mort." ,
@@ -102,8 +129,6 @@
 								link: "./page_film/Kingsman.html"
 							},
 							{
-							
-							
 								icon: "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/SPjRgbWp9UekHL1mi1QzOkk3RL.jpg",
 								title: "Adieu Monsieur Haffmann" ,
 								description: "Paris 1941. François Mercier est un homme ordinaire qui n’aspire qu’à fonder une famille avec la femme qu’il aime, Blanche. Il est aussi l’employé d’un joaillier talentueux, M. Haffmann." ,
@@ -113,8 +138,6 @@
 								link: "./page_film/adieumonsieurhaffman.html"
 							},
 							{
-							
-							
 								icon: "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/fTQF4IZnY3bd8RM0dMzywJW3ot7.jpg",
 								title: "Clifford" ,
 								description: "Emily a du mal à s'intégrer au sein de son école. Par hasard, elle découvre un petit chiot rouge qu'elle nomme Clifford. Par magie, ce dernier subit une poussée de croissance et devient un chien gigantesque qui va attirer l’attention de généticiens cupides..." ,
@@ -124,8 +147,6 @@
 								link: "./page_film/Clifford.html"
 							},
 							{
-							
-							
 								icon: "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/kaqCExbRELkJ7qJhFrvCHX5q9aD.jpg",
 								title: "Mystère" ,
 								description: "Stéphane décide d'emménager dans les belles montagnes du Cantal afin de renouer avec sa fille de 8 ans, Victoria, mutique depuis la disparition de sa maman." ,
@@ -135,8 +156,6 @@
 								link: "./page_film/mystere.html"
 							},
 							{
-							
-							
 								icon: "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/3BHdG1DuDubI0en18EFWd3Rvqjl.jpg",
 								title: "Harry Potter et le Prince de sang-mêlé" ,
 								description: "Voldemort a renforcé son emprise sur le monde des sorciers aussi bien que sur celui des Moldus, et Poudlard n’est plus un endroit sûr. Harry est d’ailleurs persuadé que le danger rôde à l’intérieur ..." ,
@@ -146,8 +165,6 @@
 								link: "./page_film/harrypotterVI.html"
 							},
 							{
-							
-							
 								icon: "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/gdUJ6ECIHNE5M2HImGaBOfb8jR2.jpg",
 								title: "Intouchables" ,
 								description: "À la suite d’un accident de parapente, Philippe, riche aristocrate, engage comme aide à domicile Driss, un jeune de banlieue tout juste sorti de prison … Bref la personne la moins adaptée pour le job." ,
@@ -157,8 +174,6 @@
 								link: "./page_film/intouchables.html"
 							},
 							{
-							
-							
 								icon: "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/qseURFLjRBCqFCNCKmS2uwM9IOj.jpg",
 								title: "Mourir peut attendre" ,
 								description: "James Bond a quitté les services secrets et coule des jours heureux en Jamaïque. Mais sa tranquillité est de courte durée car son vieil ami Felix Leiter de la CIA débarque pour solliciter son aide " ,
@@ -168,8 +183,6 @@
 								link: "./page_film/mourir_peut_attendre.html"
 							},
 							{
-							
-								
 								icon: "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/vOvB1JL9ecUYuAKyivP5zenYxa9.jpg",
 								title: "Hop" ,
 								description: "Robbie est un lapin adolescent dont le père dirige une chocolaterie secrète qui produit chaque année les délicieuses confiseries pour les fêtes de Pâques." ,
@@ -178,9 +191,7 @@
 								times: "1h35",
 								link: "./page_film/hop.html"
 							},
-							{
-							
-								
+							{	
 								icon: "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/ch3rHjFc61tLpbgsXbhKFz9kEFN.jpg",
 								title: "La panthère des neiges" ,
 								description: "Au coeur des hauts plateaux tibétains, le photographe Vincent Munier entraîne l’écrivain Sylvain Tesson dans sa quête de la panthère des neiges." ,
@@ -204,6 +215,33 @@
 					},
 					connexion(){
 						this.$router.push('/Connexion');
+					},
+					getmovielist(streaming){
+						const options = {
+							method: 'GET',
+							url: 'https://streaming-availability.p.rapidapi.com/search/basic',
+							params: {
+								country: 'fr',
+								service: streaming,
+								type: 'movie',
+								genre: '12',
+								page: '1',
+								output_language: 'fr',
+								language: 'fr'
+							},
+							headers: {
+								'X-RapidAPI-Host': 'streaming-availability.p.rapidapi.com',
+								'X-RapidAPI-Key': 'acfd8ba700mshc179ee3d1b521f9p19fb85jsnc3c308026de1'
+							}
+						};
+
+						axios.request(options).then(function (response) {
+							console.log(streaming);
+							console.log(response.data);
+						})
+						.catch(function (error) {
+							console.error(error);
+						});
 					}
 				},
 			//
@@ -224,7 +262,11 @@
 					[HOOK] Mounted
 					Called after the instance has been mounted
 				*/
-					mounted: async function(){},
+					mounted: async function(){
+						this.getmovielist("netflix")
+						this.getmovielist("prime")
+					
+					}
 				//
 
 				/* 

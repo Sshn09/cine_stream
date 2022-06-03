@@ -17,7 +17,7 @@
             <time itemprop="duration" class="duree"><b>Durée : </b>{{cmpContent.times}}</time>
             
         </figcaption>
-        <a href="./liste_film.html" type="button" class="vplus">Aller au synopsis</a>
+        <a href="./film/:uuid" type="button" class="vplus">Aller au synopsis</a>
     </figure>
 </template>
 

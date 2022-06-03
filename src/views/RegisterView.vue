@@ -1,5 +1,6 @@
 <template> 
-    <section class="form list_img"> 
+    <section class="form"> 
+		<section class="list_img">
         <article 
 			v-for="(item, idx) in cmpFilmList" 
 			:key="`item-film-${idx}`"
@@ -9,6 +10,9 @@
 				:item="item"
 			/>
 		</article>
+		</section>
+		<h2 id=formremp>Remplissez le formulaire</h2>
+
         <form action="/formulaire" method="post">
                 <!-- <label for="name">Nom :</label>
                 <input type="text" id="name" placeholder="Nom" name="user_name" required>
@@ -40,10 +44,10 @@
 					{{item.label}}
 				</label>
 				<input 
-				:type="idx"
-				:name="idx"
-				:required="item.required"
-				v-model="item.value"
+					:type="idx"
+					:name="idx"
+					:required="item.required"
+					v-model="item.value"
 				>
 			</div>
         </form>
